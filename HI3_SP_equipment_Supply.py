@@ -25,7 +25,6 @@ def gacha_defin_2(result) :
 
     if (result % 2 != 0):
         select.append(2)
-        select.append(2)
     if(result % 3 != 0):
         select.append(3)
     if (result % 5 != 0):
@@ -58,7 +57,7 @@ def gacha_normal() :
 
     return result
 
-
+# num 2 is pick-up weapon , num 3,5,7 are pick-up stigmatas 
 pass_condition_result0 =\
     [2]#무기만
 
@@ -72,8 +71,7 @@ pass_condition_result3 =\
     [3*5*7]#성흔종결
 
 pass_condition_result4 =\
-    [2 * 3, 2*5, 2*7]
- # 무기 + 성흔1부위
+    [2 * 3, 2*5, 2*7]# 무기 + 성흔1부위
 
 pass_condition_result5 =\
     [2*3*5, 2*3*7, 2*5*7]# 무기 + 성흔 2부위
@@ -90,10 +88,8 @@ R4=0
 R5=0
 R6=0
 
-repeat = 10000000#정확도
-retry =29#시도횟수
-
-beepsound()
+repeat = 10000000#The total number of simulations = Accuracy 
+retry =29#The number of pulls in one simulation
 
 for k in range(0,repeat):
     temp_arr0 = copy.deepcopy(pass_condition_result0)
@@ -112,7 +108,7 @@ for k in range(0,repeat):
         gacha_num=1
 
         if(i % 30==0):
-            if (result % 210 != 0):
+            if (result % 210 != 0): # 2*3*5*7= 210
                 gacha_num = gacha_defin_2(result)
             stack =0
 
